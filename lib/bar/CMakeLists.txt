@@ -12,7 +12,11 @@ set(source_files
     src/bar.c
     )
 
+find_package(foo 1.0.0 REQUIRED)
+
 add_library(bar ${source_files} ${header_files})
+
+target_link_libraries(bar PUBLIC foo)
 
 set(prefix bar-${bar_VERSION})
 

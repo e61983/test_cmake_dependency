@@ -1,0 +1,10 @@
+@PACKAGE_INIT@
+
+get_filename_component(FOO_CMAKE_DIR "${CMAKE_CURRENT_LIST_FILE}" PATH)
+
+if( NOT TARGET foo )
+    message(STATUS including foo-config.cmake)
+    include (${FOO_CMAKE_DIR}/foo-targets.cmake)
+endif()
+
+check_required_components(foo)
