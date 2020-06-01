@@ -1,0 +1,11 @@
+@PACKAGE_INIT@
+get_filename_component(bar_CMAKE_DIR "${CMAKE_CURRENT_LIST_DIR}" PATH)
+
+include(CMakeFindDependencyMacro)
+find_dependency(foo 1.0.0 REQUIRED)
+
+if (NOT TARGET bar)
+    include(${bar_CMAKE_DIR}/bar-targets.cmake)
+endif()
+
+check_required_components(bar)
